@@ -4,12 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@formily/antd": "^2.2.26",
+    "@formily/core": "^2.2.26",
+    "@formily/path": "^2.2.26",
+    "@formily/react": "^2.2.26",
+    "@formily/reactive": "^2.2.26",
+    "antd": "^4.24.12",
+    "dayjs": "^1.11.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
