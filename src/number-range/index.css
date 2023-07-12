@@ -1,0 +1,8 @@
+.number-range {
+  display: flex;
+  align-items: center;
+}
+
+.number-range .ant-formily-item {
+  margin-bottom: 0;
+}
