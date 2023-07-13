@@ -1,19 +1,9 @@
-import React from "react";
-import "antd/dist/antd.compact.min.css";
-import "@formily/antd/esm/style.less";
-import { createForm } from "@formily/core";
-import { FormProvider, createSchemaField } from "@formily/react";
-import {
-  Input,
-  Radio,
-  TreeSelect,
-  Cascader,
-  Select,
-  DatePicker,
-  FormItem,
-  NumberPicker,
-  Switch,
-} from '@formily/antd'
+import React from 'react'
+import 'antd/dist/antd.compact.min.css'
+import '@formily/antd/esm/style.less'
+import { createForm } from '@formily/core'
+import { FormProvider, createSchemaField } from '@formily/react'
+import { Input, Radio, TreeSelect, Cascader, Select, DatePicker, FormItem, NumberPicker, Switch } from '@formily/antd'
 
 const Title = (props: any) => <h3>{props.text}</h3>
 const SchemaField = createSchemaField({
@@ -32,14 +22,11 @@ const SchemaField = createSchemaField({
 })
 
 export default function App() {
-  const form = React.useMemo(() => createForm(), []);
+  const form = React.useMemo(() => createForm(), [])
   return (
     <FormProvider form={form}>
       <SchemaField>
-        <SchemaField.Void
-          x-component="Title"
-          x-component-props={{ text: 'label为空时的展示' }}
-        />
+        <SchemaField.Void x-component="Title" x-component-props={{ text: 'label为空时的展示' }} />
         <SchemaField.String
           x-decorator="FormItem"
           x-component="Input"
@@ -47,23 +34,9 @@ export default function App() {
             labelWidth: 300,
           }}
         />
-        <SchemaField.String
-          title=""
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{
-            labelWidth: 300,
-          }}
-        />
-        <SchemaField.Void
-          x-component="Title"
-          x-component-props={{ text: '冒号' }}
-        />
-        <SchemaField.String
-          title="默认"
-          x-decorator="FormItem"
-          x-component="Input"
-        />
+        <SchemaField.String title="" x-decorator="FormItem" x-component="Input" x-decorator-props={{ labelWidth: 300 }} />
+        <SchemaField.Void x-component="Title" x-component-props={{ text: '冒号' }} />
+        <SchemaField.String title="默认" x-decorator="FormItem" x-component="Input" />
         <SchemaField.String
           title="无冒号(colon=false)"
           x-decorator="FormItem"
@@ -72,29 +45,19 @@ export default function App() {
             colon: false,
           }}
         />
-
-        <SchemaField.Void
-          x-component="Title"
-          x-component-props={{ text: '固定宽度设置' }}
-        />
+        <SchemaField.Void x-component="Title" x-component-props={{ text: '固定宽度设置' }} />
         <SchemaField.String
           title="固定label宽度(labelWidth)"
           x-decorator="FormItem"
           x-component="Input"
-          x-decorator-props={{
-            labelWidth: 300,
-          }}
+          x-decorator-props={{ labelWidth: 300 }}
         />
         <SchemaField.String
           title="固定label宽度(labelWidth)溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出"
           description="描述描述"
           x-decorator="FormItem"
           x-component="Input"
-          x-decorator-props={{
-            labelWidth: 300,
-            tooltip: '提示提示',
-            tooltipLayout: 'text',
-          }}
+          x-decorator-props={{ labelWidth: 300, tooltip: '提示提示', tooltipLayout: 'text' }}
         />
         <SchemaField.String
           title="固定label宽度(labelWidth)换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行"
@@ -111,16 +74,10 @@ export default function App() {
           title="固定内容宽度(wrapperWidth)"
           x-decorator="FormItem"
           x-component="Input"
-          x-decorator-props={{
-            labelWidth: 300,
-            wrapperWidth: 300,
-          }}
+          x-decorator-props={{ labelWidth: 300, wrapperWidth: 300 }}
         />
 
-        <SchemaField.Void
-          x-component="Title"
-          x-component-props={{ text: '对齐方式设置' }}
-        />
+        <SchemaField.Void x-component="Title" x-component-props={{ text: '对齐方式设置' }} />
         <SchemaField.String
           title="label左对齐(labelAlign=left)"
           x-decorator="FormItem"
@@ -153,93 +110,49 @@ export default function App() {
           title="内容右对齐(wrapperAlign=right)"
           x-decorator="FormItem"
           x-component="Input"
-          x-decorator-props={{
-            labelWidth: 300,
-            wrapperWidth: 240,
-            wrapperAlign: 'right',
-          }}
+          x-decorator-props={{ labelWidth: 300, wrapperWidth: 240, wrapperAlign: 'right' }}
         />
-        <SchemaField.String
-          title="tooltip"
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{
-            tooltip: 'tooltip',
-          }}
-        />
-        <SchemaField.Void
-          x-component="Title"
-          x-component-props={{ text: '是否撑满' }}
-        />
-        <SchemaField.String
-          title="默认不撑满(fullness=false)"
-          x-decorator="FormItem"
-          x-component="Select"
-        />
+        <SchemaField.String title="tooltip" x-decorator="FormItem" x-component="Input" x-decorator-props={{ tooltip: 'tooltip' }} />
+        <SchemaField.Void x-component="Title" x-component-props={{ text: '是否撑满' }} />
+        <SchemaField.String title="默认不撑满(fullness=false)" x-decorator="FormItem" x-component="Select" />
         <SchemaField.String
           title="撑满(fullness=true)"
           x-decorator="FormItem"
           x-component="Select"
-          x-decorator-props={{
-            fullness: true,
-          }}
+          x-decorator-props={{ fullness: true }}
         />
-        <SchemaField.Void
-          x-component="Title"
-          x-component-props={{ text: '辅助信息' }}
-        />
+        <SchemaField.Void x-component="Title" x-component-props={{ text: '辅助信息' }} />
         <SchemaField.String
           title="必填星号"
           x-decorator="FormItem"
           x-component="Input"
-          x-decorator-props={{
-            asterisk: true,
-            labelCol: 6,
-            wrapperCol: 10,
-          }}
+          x-decorator-props={{ asterisk: true, labelCol: 6, wrapperCol: 10 }}
         />
         <SchemaField.String
           title="前缀"
           x-decorator="FormItem"
           x-component="Input"
-          x-decorator-props={{
-            addonBefore: 'addonBefore',
-            labelCol: 6,
-            wrapperCol: 10,
-          }}
+          x-decorator-props={{ addonBefore: 'addonBefore', labelCol: 6, wrapperCol: 10 }}
         />
         <SchemaField.String
           title="后缀"
           x-decorator="FormItem"
           x-component="Input"
-          x-decorator-props={{
-            addonAfter: 'addonAfter',
-            labelCol: 6,
-            wrapperCol: 10,
-          }}
+          x-decorator-props={{ addonAfter: 'addonAfter', labelCol: 6, wrapperCol: 10 }}
         />
         <SchemaField.String
           title="帮助信息feedbackText"
           x-decorator="FormItem"
           x-component="Input"
-          x-decorator-props={{
-            feedbackText: 'feedbackText',
-            labelCol: 6,
-            wrapperCol: 10,
-          }}
+          x-decorator-props={{ feedbackText: 'feedbackText', labelCol: 6, wrapperCol: 10 }}
         />
         <SchemaField.String
           title="额外信息extra"
           x-decorator="FormItem"
           x-component="Input"
-          x-decorator-props={{
-            feedbackText: 'feedbackText',
-            extra: 'extra',
-            labelCol: 6,
-            wrapperCol: 10,
-          }}
+          x-decorator-props={{ feedbackText: 'feedbackText', extra: 'extra', labelCol: 6, wrapperCol: 10 }}
         />
       </SchemaField>
     </FormProvider>
-  );
+  )
 }
