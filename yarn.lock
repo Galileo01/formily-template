@@ -11,7 +11,7 @@
 
 "@ant-design/colors@^7.0.0":
   version "7.0.0"
-  resolved "http://bnpm.byted.org/@ant-design/colors/-/colors-7.0.0.tgz#eb7eecead124c3533aea05d61254f0a17f2b61b3"
+  resolved "https://registry.npmmirror.com/@ant-design/colors/-/colors-7.0.0.tgz#eb7eecead124c3533aea05d61254f0a17f2b61b3"
   integrity sha512-iVm/9PfGCbC0dSMBrz7oiEXZaaGH7ceU40OJEfKmyuzR9R5CRimJYPlRiFtMQGQcbNMea/ePcoIebi4ASGYXtg==
   dependencies:
     "@ctrl/tinycolor" "^3.4.0"
@@ -34,7 +34,7 @@
 
 "@ant-design/icons@^5.1.4":
   version "5.1.4"
-  resolved "http://bnpm.byted.org/@ant-design/icons/-/icons-5.1.4.tgz#614e29e26d092c2c1c1a2acbc0d84434d8d1474e"
+  resolved "https://registry.npmmirror.com/@ant-design/icons/-/icons-5.1.4.tgz#614e29e26d092c2c1c1a2acbc0d84434d8d1474e"
   integrity sha512-YHKL7Jx3bM12OxvtiYDon04BsBT/6LGitYEqar3GljzWaAyMOAD8i/uF1Rsi5Us/YNdWWXBGSvZV2OZWMpJlcA==
   dependencies:
     "@ant-design/colors" "^7.0.0"
@@ -1127,7 +1127,7 @@ rc-util@^5.0.1, rc-util@^5.0.6, rc-util@^5.15.0, rc-util@^5.16.0, rc-util@^5.16.
 
 rc-util@^5.31.1:
   version "5.34.1"
-  resolved "http://bnpm.byted.org/rc-util/-/rc-util-5.34.1.tgz#0becf411d8f09bdb0f1b61322964f27efeeba642"
+  resolved "https://registry.npmmirror.com/rc-util/-/rc-util-5.34.1.tgz#0becf411d8f09bdb0f1b61322964f27efeeba642"
   integrity sha512-SqiUT8Ssgh5C+hu4y887xwCrMNcxLm6ScOo8AFlWYYF3z9uNNiPpwwSjvicqOlWd79rNw1g44rnP7tz9MrO1ZQ==
   dependencies:
     "@babel/runtime" "^7.18.3"
