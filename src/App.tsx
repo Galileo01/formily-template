@@ -200,24 +200,19 @@ const FormLayoutExample = () => {
   return (
     <FormProvider form={form}>
       <SchemaField>
-        <SchemaField.Void
-          x-component="FormLayout"
-          x-component-props={{
-            labelCol: 6,
-            wrapperCol: 10,
-          }}
-        >
+        <SchemaField.Void x-component="FormLayout" x-component-props={{ labelCol: 6, wrapperCol: 10 }}>
+          <SchemaField.String name="input" title="输入框" x-decorator="FormItem" x-component="Input" required />
           <SchemaField.String
-            name="input"
-            title="输入框"
+            name="select"
+            title="选择框"
             x-decorator="FormItem"
-            x-decorator-props={{
-              tooltip: <div>123</div>,
-            }}
-            x-component="Input"
+            x-component="Select"
             required
+            x-decorator-props={{
+              labelCol: 8,
+              wrapperCol: 8,
+            }}
           />
-          <SchemaField.String name="select" title="选择框" x-decorator="FormItem" x-component="Select" required />
         </SchemaField.Void>
       </SchemaField>
     </FormProvider>
