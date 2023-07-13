@@ -2,7 +2,7 @@ import React from 'react'
 import 'antd/dist/antd.compact.min.css'
 import '@formily/antd/esm/style.less'
 import { createForm } from '@formily/core'
-import { FormProvider, createSchemaField } from '@formily/react'
+import { FormProvider, createSchemaField, FormConsumer } from '@formily/react'
 import {
   Input,
   Radio,
@@ -14,12 +14,16 @@ import {
   NumberPicker,
   Switch,
   FormLayout,
-  FormGrid,
+  FormStep,
+  FormTab,
+  FormDialog,
+  FormDrawer,
   FormButtonGroup,
+  Reset,
   Submit,
   Space,
 } from '@formily/antd'
-import { Tabs } from 'antd'
+import { Tabs, Button } from 'antd'
 
 const Title = (props: any) => <h3>{props.text}</h3>
 const SchemaField = createSchemaField({
@@ -34,7 +38,8 @@ const SchemaField = createSchemaField({
     Radio,
     FormItem,
     FormLayout,
-    FormGrid,
+    FormStep,
+    FormTab,
     FormButtonGroup,
     Submit,
     Space,
@@ -42,296 +47,224 @@ const SchemaField = createSchemaField({
   },
 })
 
-const FormItemExample = () => {
+const FormStepExample = () => {
   const form = React.useMemo(() => createForm(), [])
+  const formStep = React.useMemo(() => FormStep.createFormStep(), [])
   return (
     <FormProvider form={form}>
       <SchemaField>
-        <SchemaField.Void x-component="Title" x-component-props={{ text: 'label为空时的展示' }} />
-        <SchemaField.String x-decorator="FormItem" x-component="Input" x-decorator-props={{ labelWidth: 300 }} />
-        <SchemaField.Void x-component="Title" x-component-props={{ text: '冒号' }} />
-        <SchemaField.String title="默认" x-decorator="FormItem" x-component="Input" />
-        <SchemaField.String
-          title="无冒号(colon=false)"
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{
-            colon: false,
-          }}
-        />
-        <SchemaField.Void x-component="Title" x-component-props={{ text: '固定宽度设置' }} />
-        <SchemaField.String
-          title="固定label宽度(labelWidth)"
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{ labelWidth: 300 }}
-        />
-        <SchemaField.String
-          title="固定label宽度(labelWidth)溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出溢出"
-          description="描述描述"
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{ labelWidth: 300, tooltip: '提示提示', tooltipLayout: 'text' }}
-        />
-        <SchemaField.String
-          title="固定label宽度(labelWidth)换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行换行"
-          description="描述描述"
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{
-            labelWidth: 300,
-            labelWrap: true,
-            tooltip: '提示提示',
-          }}
-        />
-        <SchemaField.String
-          title="固定内容宽度(wrapperWidth)"
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{ labelWidth: 300, wrapperWidth: 300 }}
-        />
-
-        <SchemaField.Void x-component="Title" x-component-props={{ text: '对齐方式设置' }} />
-        <SchemaField.String
-          title="label左对齐(labelAlign=left)"
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{
-            labelWidth: 300,
-            labelAlign: 'left',
-          }}
-        />
-        <SchemaField.String
-          title="label右对齐(labelAlign=right默认)"
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{
-            labelWidth: 300,
-            labelAlign: 'right',
-          }}
-        />
-        <SchemaField.String
-          title="内容左对齐(wrapperAlign=left默认)"
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{
-            labelWidth: 300,
-            wrapperWidth: 240,
-            wrapperAlign: 'left',
-          }}
-        />
-        <SchemaField.String
-          title="内容右对齐(wrapperAlign=right)"
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{ labelWidth: 300, wrapperWidth: 240, wrapperAlign: 'right' }}
-        />
-        <SchemaField.String title="tooltip" x-decorator="FormItem" x-component="Input" x-decorator-props={{ tooltip: 'tooltip' }} />
-        <SchemaField.Void x-component="Title" x-component-props={{ text: '是否撑满' }} />
-        <SchemaField.String title="默认不撑满(fullness=false)" x-decorator="FormItem" x-component="Select" />
-        <SchemaField.String
-          title="撑满(fullness=true)"
-          x-decorator="FormItem"
-          x-component="Select"
-          x-decorator-props={{ fullness: true }}
-        />
-        <SchemaField.Void x-component="Title" x-component-props={{ text: '辅助信息' }} />
-        <SchemaField.String
-          title="必填星号"
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{ asterisk: true, labelCol: 6, wrapperCol: 10 }}
-        />
-        <SchemaField.String
-          title="前缀"
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{ addonBefore: 'addonBefore', labelCol: 6, wrapperCol: 10 }}
-        />
-        <SchemaField.String
-          title="后缀"
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{ addonAfter: 'addonAfter', labelCol: 6, wrapperCol: 10 }}
-        />
-        <SchemaField.String
-          title="帮助信息feedbackText"
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{ feedbackText: 'feedbackText', labelCol: 6, wrapperCol: 10 }}
-        />
-        <SchemaField.String
-          title="额外信息extra"
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{ feedbackText: 'feedbackText', extra: 'extra', labelCol: 6, wrapperCol: 10 }}
-        />
-        <SchemaField.Void x-component="Title" x-component-props={{ text: '内嵌模式' }} />
-        <SchemaField.String
-          name="input"
-          title="Input"
-          x-decorator="FormItem"
-          x-component="Input"
-          required
-          x-decorator-props={{ inset: true }}
-        />
-        <SchemaField.String
-          name="Select"
-          title="Select"
-          x-decorator="FormItem"
-          x-component="Select"
-          required
-          x-decorator-props={{ inset: true }}
-        />
-        <SchemaField.String
-          name="Cascader"
-          title="Cascader"
-          x-decorator="FormItem"
-          x-component="Cascader"
-          required
-          x-decorator-props={{ inset: true }}
-        />
-      </SchemaField>
-    </FormProvider>
-  )
-}
-const FormLayoutExample = () => {
-  const form = React.useMemo(() => createForm(), [])
-  return (
-    <FormProvider form={form}>
-      <SchemaField>
-        <SchemaField.Void x-component="FormLayout" x-component-props={{ labelCol: 6, wrapperCol: 10 }}>
-          <SchemaField.String name="input" title="输入框" x-decorator="FormItem" x-component="Input" required />
-          <SchemaField.String
-            name="select"
-            title="选择框"
-            x-decorator="FormItem"
-            x-component="Select"
-            required
-            x-decorator-props={{
-              labelCol: 8,
-              wrapperCol: 8,
-            }}
-          />
+        <SchemaField.Void x-component="FormStep" x-component-props={{ formStep }}>
+          <SchemaField.Void x-component="FormStep.StepPane" x-component-props={{ title: '第一步' }}>
+            <SchemaField.String name="aaa" x-decorator="FormItem" required x-component="Input" />
+          </SchemaField.Void>
+          <SchemaField.Void x-component="FormStep.StepPane" x-component-props={{ title: '第二步' }}>
+            <SchemaField.String name="bbb" x-decorator="FormItem" required x-component="Input" />
+          </SchemaField.Void>
+          <SchemaField.Void type="void" x-component="FormStep.StepPane" x-component-props={{ title: '第三步' }}>
+            <SchemaField.String name="ccc" x-decorator="FormItem" required x-component="Input" />
+          </SchemaField.Void>
         </SchemaField.Void>
       </SchemaField>
+      <FormConsumer>
+        {() => (
+          <FormButtonGroup>
+            <Button
+              disabled={!formStep.allowBack}
+              onClick={() => {
+                formStep.back()
+              }}
+            >
+              上一步
+            </Button>
+            <Button
+              disabled={!formStep.allowNext}
+              onClick={() => {
+                formStep.next()
+              }}
+            >
+              下一步
+            </Button>
+            <Button
+              disabled={formStep.allowNext}
+              onClick={() => {
+                formStep.submit(console.log)
+              }}
+            >
+              提交
+            </Button>
+          </FormButtonGroup>
+        )}
+      </FormConsumer>
     </FormProvider>
   )
 }
-const FormGridExample = () => {
+const FormTabExample = () => {
   const form = React.useMemo(() => createForm(), [])
+  const formTab = React.useMemo(() => FormTab.createFormTab(), [])
   return (
     <FormProvider form={form}>
       <SchemaField>
-        <SchemaField.Void
-          x-component="FormGrid"
-          x-component-props={{
-            maxColumns: 3,
-            minColumns: 2,
+        <SchemaField.Void type="void" x-component="FormTab" x-component-props={{ formTab }}>
+          <SchemaField.Void type="void" name="tab1" x-component="FormTab.TabPane" x-component-props={{ tab: 'A1', key: 'A1' }}>
+            <SchemaField.String name="aaa" x-decorator="FormItem" title="AAA" required x-component="Input" />
+          </SchemaField.Void>
+          <SchemaField.Void name="tab2" x-component="FormTab.TabPane" x-component-props={{ tab: 'A2', key: 'A2' }}>
+            <SchemaField.String name="bbb" x-decorator="FormItem" title="BBB" required x-component="Input" />
+          </SchemaField.Void>
+          <SchemaField.Void name="tab3" x-component="FormTab.TabPane" x-component-props={{ tab: 'A3', key: 'A3' }}>
+            <SchemaField.String name="ccc" x-decorator="FormItem" title="CCC" required x-component="Input" />
+          </SchemaField.Void>
+        </SchemaField.Void>
+      </SchemaField>
+      <FormButtonGroup.FormItem>
+        <Button
+          onClick={() => {
+            form.query('tab3').take((field) => {
+              field.visible = !field.visible
+            })
           }}
         >
-          <SchemaField.String name="aaa" title="aaa" x-decorator="FormItem" x-decorator-props={{ gridSpan: 2 }} x-component="Input" />
-          <SchemaField.String name="bbb" title="bbb" x-decorator="FormItem" x-component="Input" />
-          <SchemaField.String name="ccc" title="ccc" x-decorator="FormItem" x-component="Input" />
-          <SchemaField.String name="ddd" title="ddd" x-decorator="FormItem" x-component="Input" />
-          <SchemaField.String name="eee" title="eee" x-decorator="FormItem" x-component="Input" />
-          <SchemaField.String name="fff" title="fff" x-decorator="FormItem" x-component="Input" />
-          <SchemaField.String name="ggg" title="ggg" x-decorator="FormItem" x-component="Input" />
-        </SchemaField.Void>
-      </SchemaField>
+          显示/隐藏最后一个Tab
+        </Button>
+        <Button
+          onClick={() => {
+            formTab.setActiveKey('tab2')
+          }}
+        >
+          切换第二个Tab
+        </Button>
+        <Submit onSubmit={console.log}>提交</Submit>
+      </FormButtonGroup.FormItem>
     </FormProvider>
   )
 }
-const SpceSubmitResetExample = () => {
-  const form = React.useMemo(() => createForm(), [])
+const { createContext, useContext } = React
+const Context = createContext('')
+const PortalId = '可以传，也可以不传的ID，默认是form-dialog'
+const FormDialogExample = () => {
   return (
-    <FormProvider form={form}>
-      <FormLayout labelCol={6} wrapperCol={16}>
-        <SchemaField>
-          <SchemaField.Void
-            title="姓名"
-            x-decorator="FormItem"
-            x-decorator-props={{
-              asterisk: true,
-              feedbackLayout: 'none',
-            }}
-            x-component="Space"
-          >
-            <SchemaField.String name="firstName" x-decorator="FormItem" x-component="Input" required />
-            <SchemaField.String name="lastName" x-decorator="FormItem" x-component="Input" required />
-          </SchemaField.Void>
-          <SchemaField.Void
-            title="文本串联"
-            x-decorator="FormItem"
-            x-decorator-props={{
-              asterisk: true,
-              feedbackLayout: 'none',
-            }}
-            x-component="Space"
-          >
-            <SchemaField.String
-              name="aa"
-              x-decorator="FormItem"
-              x-component="Input"
-              x-decorator-props={{
-                addonAfter: '单位',
-              }}
-              required
-            />
-            <SchemaField.String
-              name="bb"
-              x-decorator="FormItem"
-              x-component="Input"
-              x-decorator-props={{
-                addonAfter: '单位',
-              }}
-              required
-            />
-            <SchemaField.String
-              name="cc"
-              x-decorator="FormItem"
-              x-component="Input"
-              x-decorator-props={{
-                addonAfter: '单位',
-              }}
-              required
-            />
-          </SchemaField.Void>
-          <SchemaField.String
-            name="textarea"
-            title="文本框"
-            x-decorator="FormItem"
-            required
-            x-component="Input.TextArea"
-            x-component-props={{
-              style: {
-                width: 400,
-              },
-            }}
-          />
-        </SchemaField>
-        <FormButtonGroup.FormItem>
-          <Submit onSubmit={console.log}>提交</Submit>
-        </FormButtonGroup.FormItem>
-      </FormLayout>
-    </FormProvider>
+    <Context.Provider value="自定义上下文可以直接传到弹窗内部，只需要ID一致即可">
+      <FormDialog.Portal id={PortalId}>
+        <Button
+          onClick={() => {
+            const dialog = FormDialog('弹窗表单', PortalId, (form) => {
+              console.log(useContext(Context))
+              return (
+                <FormLayout labelCol={6} wrapperCol={10}>
+                  <SchemaField>
+                    <SchemaField.String name="aaa" required title="输入框1" x-decorator="FormItem" x-component="Input" />
+                    <SchemaField.String name="bbb" required title="输入框2" x-decorator="FormItem" x-component="Input" />
+                    <SchemaField.String name="ccc" required title="输入框3" x-decorator="FormItem" x-component="Input" />
+                    <SchemaField.String name="ddd" required title="输入框4" x-decorator="FormItem" x-component="Input" />
+                  </SchemaField>
+                  <FormDialog.Footer>
+                    <span
+                      style={{ marginLeft: 4 }}
+                      onClick={() => {
+                        dialog.close()
+                      }}
+                    >
+                      扩展文案：{form.values.aaa}(点击关闭弹窗)
+                    </span>
+                  </FormDialog.Footer>
+                </FormLayout>
+              )
+            })
+            dialog
+              .forOpen((payload, next) => {
+                setTimeout(() => {
+                  next({
+                    initialValues: {
+                      aaa: '123',
+                    },
+                  })
+                }, 1000)
+              })
+              .forConfirm((payload, next) => {
+                setTimeout(() => {
+                  console.log(payload)
+                  next(payload)
+                }, 1000)
+              })
+              .forCancel((payload, next) => {
+                setTimeout(() => {
+                  console.log(payload)
+                  next(payload)
+                }, 1000)
+              })
+              .open({ pattern: 'editable', initialValues: {} })
+              .then(console.log)
+              .catch(console.error)
+          }}
+        >
+          点我打开表单
+        </Button>
+      </FormDialog.Portal>
+    </Context.Provider>
+  )
+}
+const FormDrawerExample = () => {
+  return (
+    <Button
+      onClick={() => {
+        FormDrawer('抽屉表单', () => {
+          return (
+            <FormLayout labelCol={6} wrapperCol={10}>
+              <SchemaField>
+                <SchemaField.String name="aaa" required title="输入框1" x-decorator="FormItem" x-component="Input" />
+                <SchemaField.String name="bbb" required title="输入框2" x-decorator="FormItem" x-component="Input" />
+                <SchemaField.String name="ccc" required title="输入框3" x-decorator="FormItem" x-component="Input" />
+                <SchemaField.String name="ddd" required title="输入框4" x-decorator="FormItem" x-component="Input" />
+              </SchemaField>
+              <FormDrawer.Extra>
+                <FormButtonGroup align="right">
+                  <Submit
+                    onSubmit={() => {
+                      return new Promise((resolve) => {
+                        setTimeout(resolve, 1000)
+                      })
+                    }}
+                  >
+                    提交
+                  </Submit>
+                  <Reset>重置</Reset>
+                </FormButtonGroup>
+              </FormDrawer.Extra>
+            </FormLayout>
+          )
+        })
+          .forOpen((props, next) => {
+            setTimeout(() => {
+              next()
+            }, 1000)
+          })
+          .open({
+            initialValues: {
+              aaa: '123',
+            },
+          })
+          .then(console.log)
+      }}
+    >
+      点我打开表单
+    </Button>
   )
 }
 
 export default function App() {
   return (
     <Tabs defaultActiveKey="1">
-      <Tabs.TabPane tab="FormItem示例" key="1">
-        <FormItemExample />
+      <Tabs.TabPane tab="FormStep示例" key="1">
+        <FormStepExample />
       </Tabs.TabPane>
-      <Tabs.TabPane tab="FormLayout示例" key="2">
-        <FormLayoutExample />
+      <Tabs.TabPane tab="FormTab示例" key="2">
+        <FormTabExample />
       </Tabs.TabPane>
-      <Tabs.TabPane tab="Grid示例" key="3">
-        <FormGridExample />
+      <Tabs.TabPane tab="FormDialog示例" key="3">
+        <FormDialogExample />
       </Tabs.TabPane>
-      <Tabs.TabPane tab="Space Submit Reset等组件示例" key="4">
-        <SpceSubmitResetExample />
+      <Tabs.TabPane tab="FormDrawer示例" key="4">
+        <FormDrawerExample />
       </Tabs.TabPane>
     </Tabs>
   )
