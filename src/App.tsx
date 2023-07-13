@@ -1,26 +1,47 @@
-import React from "react";
-import "antd/dist/antd.compact.min.css";
-import "@formily/antd/esm/style.less";
-import { createForm } from "@formily/core";
-import { FormProvider, createSchemaField } from "@formily/react";
-import { FormItem, Input } from "@formily/antd";
+import * as React from 'react';
 
-const SchemaField = createSchemaField({ components: { FormItem, Input } });
+import { createForm } from '@formily/core';
+import { FormProvider, createSchemaField } from '@formily/react';
+import { Button } from 'antd';
+import { NumberPicker, FormItem, Submit, Input, FormLayout, FormButtonGroup, Select } from '@formily/antd';
+import 'antd/dist/antd.compact.min.css';
+import '@formily/antd/esm/style.less';
+
+import LandLine, { land_line_validator } from './land-line';
+
+const SchemaField = createSchemaField({
+  components: { FormLayout, FormItem, NumberPicker, Submit, Input, Select, LandLine },
+});
 
 export default function App() {
   const form = React.useMemo(() => createForm(), []);
 
   return (
     <FormProvider form={form}>
-      <SchemaField>
-        <SchemaField.String
-          name="username"
-          title="用户名"
-          required
-          x-decorator="FormItem"
-          x-component="Input"
-        />
-      </SchemaField>
+      <FormLayout labelCol={6} wrapperCol={10}>
+        <SchemaField>
+          <SchemaField.String
+            name="land_line"
+            title="座机号码"
+            x-component="LandLine"
+            x-decorator="FormItem"
+            x-validator={{
+              validator: land_line_validator,
+            }}
+          />
+        </SchemaField>
+        <FormButtonGroup.FormItem>
+          <Submit onSubmit={console.log}>提交</Submit>
+          <Button
+            onClick={() => {
+              form.setState((state) => {
+                state.editable = !state.editable;
+              });
+            }}>
+            切换阅读态
+          </Button>
+        </FormButtonGroup.FormItem>
+      </FormLayout>
     </FormProvider>
   );
 }
