@@ -27,14 +27,7 @@ export default function App() {
     <FormProvider form={form}>
       <SchemaField>
         <SchemaField.Void x-component="Title" x-component-props={{ text: 'label为空时的展示' }} />
-        <SchemaField.String
-          x-decorator="FormItem"
-          x-component="Input"
-          x-decorator-props={{
-            labelWidth: 300,
-          }}
-        />
-        <SchemaField.String title="" x-decorator="FormItem" x-component="Input" x-decorator-props={{ labelWidth: 300 }} />
+        <SchemaField.String x-decorator="FormItem" x-component="Input" x-decorator-props={{ labelWidth: 300 }} />
         <SchemaField.Void x-component="Title" x-component-props={{ text: '冒号' }} />
         <SchemaField.String title="默认" x-decorator="FormItem" x-component="Input" />
         <SchemaField.String
@@ -151,6 +144,31 @@ export default function App() {
           x-decorator="FormItem"
           x-component="Input"
           x-decorator-props={{ feedbackText: 'feedbackText', extra: 'extra', labelCol: 6, wrapperCol: 10 }}
+        />
+        <SchemaField.Void x-component="Title" x-component-props={{ text: '内嵌模式' }} />
+        <SchemaField.String
+          name="input"
+          title="Input"
+          x-decorator="FormItem"
+          x-component="Input"
+          required
+          x-decorator-props={{ inset: true }}
+        />
+        <SchemaField.String
+          name="Select"
+          title="Select"
+          x-decorator="FormItem"
+          x-component="Select"
+          required
+          x-decorator-props={{ inset: true }}
+        />
+        <SchemaField.String
+          name="Cascader"
+          title="Cascader"
+          x-decorator="FormItem"
+          x-component="Cascader"
+          required
+          x-decorator-props={{ inset: true }}
         />
       </SchemaField>
     </FormProvider>
