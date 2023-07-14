@@ -1,30 +1,26 @@
 .custom-array-items {
   .custom-array-items-header {
-    .arco-formily-item {
-      margin-bottom: 0;
-      padding: 0;
-    }
-    .arco-formily-item .arco-formily-item-label {
-      width: auto;
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  .arco-formily-grid-layout {
-    flex-grow: 1;
-    .arco-formily-item {
-      margin-bottom: 12px;
-
-      &:nth-of-type(3),
-      &:nth-of-type(4) {
-        margin-bottom: 0;
-      }
-    }
-
-    .arco-picker {
-      width: 100%;
-    }
+  .ant-formily-item,
+  .ant-formily-item-feedback-layout-loose {
+    margin-bottom: 0;
+    margin-left: 5px;
   }
-  .arco-formily-item-control-content-component {
-    background-color: #fff;
+  .arco-formily-item .arco-formily-item-label {
+    width: auto;
+  }
+
+  .antd-formily-array-items-item-inner {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .delete-action {
+    margin-left: 8px;
   }
 }
