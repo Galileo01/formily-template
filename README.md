@@ -17,4 +17,6 @@ This is a [Vite](https://vitejs.dev) project together with React.
 
 ## Synced Templates
 
+[synced-templates](https://codesandbox.io/docs/learn/sandboxes/synced-templates)
+
 - [main](https://codesandbox.io/p/sandbox/github/Galileo01/formily-template/tree/main?file=%2Fsrc%2FApp.tsx%3A13%2C11)
