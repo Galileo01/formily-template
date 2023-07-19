@@ -18,5 +18,6 @@ This is a [Vite](https://vitejs.dev) project together with React.
 ## Synced Templates
 
 - [main](https://codesandbox.io/p/sandbox/github/Galileo01/formily-template/tree/main?file=%2Fsrc%2FApp.tsx%3A13%2C11)
+- [feat-scene](https://codesandbox.io/p/sandbox/github/Galileo01/formily-template/tree/feat-scene)
 
 ## 场景化组件 template
