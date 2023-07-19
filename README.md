@@ -19,3 +19,5 @@ This is a [Vite](https://vitejs.dev) project together with React.
 
 - [main](https://codesandbox.io/p/sandbox/github/Galileo01/formily-template/tree/main?file=%2Fsrc%2FApp.tsx%3A13%2C11)
 - [feat-custom_component](https://codesandbox.io/p/sandbox/github/Galileo01/formily-template/tree/feat-custom_component?file=%2Fsrc%2FApp.tsx%3A1%2C1)
+
+## 自定义组件 template
