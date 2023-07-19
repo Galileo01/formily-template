@@ -20,3 +20,7 @@ This is a [Vite](https://vitejs.dev) project together with React.
 [synced-templates](https://codesandbox.io/docs/learn/sandboxes/synced-templates)
 
 - [main](https://codesandbox.io/p/sandbox/github/Galileo01/formily-template/tree/main?file=%2Fsrc%2FApp.tsx%3A13%2C11)
+
+- [feat-schema-config](https://codesandbox.io/p/sandbox/github/Galileo01/formily-template/tree/feat-schema-config)
+
+## Schema 下发场景
