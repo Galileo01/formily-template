@@ -200,19 +200,42 @@ const FormLayoutExample = () => {
   return (
     <FormProvider form={form}>
       <SchemaField>
-        <SchemaField.Void x-component="FormLayout" x-component-props={{ labelCol: 6, wrapperCol: 10 }}>
-          <SchemaField.String name="input" title="输入框" x-decorator="FormItem" x-component="Input" required />
-          <SchemaField.String
-            name="select"
-            title="选择框"
-            x-decorator="FormItem"
-            x-component="Select"
-            required
-            x-decorator-props={{
-              labelCol: 8,
-              wrapperCol: 8,
-            }}
-          />
+        <SchemaField.Void x-component="Title" x-component-props={{ text: 'vertical布局模式' }} />
+        <SchemaField.Void
+          x-component="FormLayout"
+          x-component-props={{
+            labelAlign: 'left',
+            labelCol: 6,
+            wrapperCol: 10,
+            layout: 'vertical',
+          }}
+        >
+          <SchemaField.String name="input-1" title="输入框" x-decorator="FormItem" x-component="Input" required />
+          <SchemaField.String name="select-1" title="选择框" x-decorator="FormItem" x-component="Select" required />
+        </SchemaField.Void>
+        <SchemaField.Void x-component="Title" x-component-props={{ text: 'horizontal布局模式' }} />
+        <SchemaField.Void
+          x-component="FormLayout"
+          x-component-props={{
+            labelAlign: 'left',
+            labelCol: 2,
+            wrapperCol: 8,
+            layout: 'horizontal',
+          }}
+        >
+          <SchemaField.String name="input-2" title="输入框" x-decorator="FormItem" x-component="Input" required />
+          <SchemaField.String name="select-2" title="选择框" x-decorator="FormItem" x-component="Select" required />
+        </SchemaField.Void>
+        <SchemaField.Void x-component="Title" x-component-props={{ text: 'inline布局模式' }} />
+        <SchemaField.Void
+          x-component="FormLayout"
+          x-component-props={{
+            labelAlign: 'left',
+            layout: 'inline',
+          }}
+        >
+          <SchemaField.String name="input-3" title="输入框" x-decorator="FormItem" x-component="Input" required />
+          <SchemaField.String name="select-3" title="选择框" x-decorator="FormItem" x-component="Select" required />
         </SchemaField.Void>
       </SchemaField>
     </FormProvider>
