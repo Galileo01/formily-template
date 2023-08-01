@@ -22,6 +22,25 @@ import {
 import { Tabs } from 'antd'
 
 const Title = (props: any) => <h3>{props.text}</h3>
+
+const Cell = ({ children }: React.PropsWithChildren<{}>) => {
+  return (
+    <div
+      style={{
+        backgroundColor: '#AAA',
+        color: '#FFF',
+        height: 30,
+        display: 'flex',
+        alignItems: 'center',
+        padding: '0 10px',
+      }}
+    >
+      {children}
+    </div>
+  )
+}
+
+
 const SchemaField = createSchemaField({
   components: {
     Input,
@@ -39,6 +58,7 @@ const SchemaField = createSchemaField({
     Submit,
     Space,
     Title,
+    Cell
   },
 })
 
@@ -341,6 +361,340 @@ const SpceSubmitResetExample = () => {
   )
 }
 
+const FormGridReactiveExample= () => {
+  const form = React.useMemo(createForm, [])
+
+  return (
+    <FormProvider form={form}>
+      <SchemaField>
+        <SchemaField.Void
+          name="title_1"
+          x-decorator="FormItem"
+          x-content={<p>maxColumns 3 + minColumns 2</p>}
+        />
+        <SchemaField.Void
+          name="grid_1"
+          x-decorator="FormItem"
+          x-component="FormGrid"
+          x-component-props={{
+            maxColumns: 3,
+            minColumns: 2,
+          }}
+        >
+          <SchemaField.String
+            name="grid_1.cell_1"
+            x-decorator="FormItem"
+            x-decorator-props={{
+              gridSpan: 4,
+            }}
+            x-component="Cell"
+            x-component-props={{
+              children: 1,
+            }}
+          />
+          <SchemaField.String
+            name="grid_1.cell_2"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 2,
+            }}
+          />
+          <SchemaField.String
+            name="grid_1.cell_3"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 3,
+            }}
+          />
+          <SchemaField.String
+            name="grid_1.cell_4"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 4,
+            }}
+          />
+          <SchemaField.String
+            name="grid_1.cell_5"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 5,
+            }}
+          />
+          <SchemaField.String
+            name="grid_1.cell_6"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 6,
+            }}
+          />
+        </SchemaField.Void>
+        <SchemaField.Void
+          name="title_2"
+          x-decorator="FormItem"
+          x-content={<p>maxColumns 3</p>}
+        />
+        <SchemaField.Void
+          name="grid_2"
+          x-decorator="FormItem"
+          x-component="FormGrid"
+          x-component-props={{
+            maxColumns: 3,
+          }}
+        >
+          <SchemaField.String
+            name="grid_2.cell_1"
+            x-decorator="FormItem"
+            x-decorator-props={{
+              gridSpan: 2,
+            }}
+            x-component="Cell"
+            x-component-props={{
+              children: 1,
+            }}
+          />
+          <SchemaField.String
+            name="grid_2.cell_2"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 2,
+            }}
+          />
+          <SchemaField.String
+            name="grid_2.cell_3"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 3,
+            }}
+          />
+          <SchemaField.String
+            name="grid_2.cell_4"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 4,
+            }}
+          />
+          <SchemaField.String
+            name="grid_2.cell_5"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 5,
+            }}
+          />
+          <SchemaField.String
+            name="grid_2.cell_6"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 6,
+            }}
+          />
+        </SchemaField.Void>
+        <SchemaField.Void
+          name="title_3"
+          x-decorator="FormItem"
+          x-content={<p>默认情况</p>}
+        />
+        <SchemaField.Void
+          name="grid_3"
+          x-decorator="FormItem"
+          x-component="FormGrid"
+        >
+          <SchemaField.String
+            name="grid_3.cell_1"
+            x-decorator="FormItem"
+            x-decorator-props={{
+              gridSpan: 2,
+            }}
+            x-component="Cell"
+            x-component-props={{
+              children: 1,
+            }}
+          />
+          <SchemaField.String
+            name="grid_3.cell_2"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 2,
+            }}
+          />
+          <SchemaField.String
+            name="grid_3.cell_3"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 3,
+            }}
+          />
+          <SchemaField.String
+            name="grid_3.cell_4"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 4,
+            }}
+          />
+          <SchemaField.String
+            name="grid_3.cell_5"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 5,
+            }}
+          />
+          <SchemaField.String
+            name="grid_3.cell_6"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 6,
+            }}
+          />
+        </SchemaField.Void>
+        <SchemaField.Void
+          name="title_4"
+          x-decorator="FormItem"
+          x-content={<p>maxColumns 2</p>}
+        />
+        <SchemaField.Void
+          name="grid_4"
+          x-decorator="FormItem"
+          x-component="FormGrid"
+          x-component-props={{
+            maxColumns: 2,
+          }}
+        >
+          <SchemaField.String
+            name="grid_4.cell_1"
+            x-decorator="FormItem"
+            x-decorator-props={{
+              gridSpan: 2,
+            }}
+            x-component="Cell"
+            x-component-props={{
+              children: 1,
+            }}
+          />
+          <SchemaField.String
+            name="grid_4.cell_2"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 2,
+            }}
+          />
+          <SchemaField.String
+            name="grid_4.cell_3"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 3,
+            }}
+          />
+          <SchemaField.String
+            name="grid_4.cell_4"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 4,
+            }}
+          />
+          <SchemaField.String
+            name="grid_4.cell_5"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 5,
+            }}
+          />
+          <SchemaField.String
+            name="grid_4.cell_6"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 6,
+            }}
+          />
+        </SchemaField.Void>
+        <SchemaField.Void
+          name="title_5"
+          x-decorator="FormItem"
+          x-content={<p>minWidth 150 +maxColumns 3 </p>}
+        />
+        <SchemaField.Void
+          name="grid_5"
+          x-decorator="FormItem"
+          x-component="FormGrid"
+          x-component-props={{
+            maxColumns: 2,
+          }}
+        >
+          <SchemaField.String
+            name="grid_5.cell_1"
+            x-decorator="FormItem"
+            x-decorator-props={{
+              gridSpan: 2,
+            }}
+            x-component="Cell"
+            x-component-props={{
+              children: 1,
+            }}
+          />
+          <SchemaField.String
+            name="grid_5.cell_2"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 2,
+            }}
+          />
+          <SchemaField.String
+            name="grid_5.cell_3"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 3,
+            }}
+          />
+          <SchemaField.String
+            name="grid_5.cell_4"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 4,
+            }}
+          />
+          <SchemaField.String
+            name="grid_5.cell_5"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 5,
+            }}
+          />
+          <SchemaField.String
+            name="grid_5.cell_6"
+            x-decorator="FormItem"
+            x-component="Cell"
+            x-component-props={{
+              children: 6,
+            }}
+          />
+        </SchemaField.Void>
+      </SchemaField>
+    </FormProvider>
+  )
+}
+
 export default function App() {
   return (
     <Tabs defaultActiveKey="1">
@@ -353,9 +707,14 @@ export default function App() {
       <Tabs.TabPane tab="Grid示例" key="3">
         <FormGridExample />
       </Tabs.TabPane>
-      <Tabs.TabPane tab="Space Submit Reset等组件示例" key="4">
+      <Tabs.TabPane tab="Grid响应式示例" key="4">
+        <FormGridReactiveExample />
+      </Tabs.TabPane>
+      <Tabs.TabPane tab="Space Submit Reset等组件示例" key="5">
         <SpceSubmitResetExample />
       </Tabs.TabPane>
     </Tabs>
   )
 }
+
+
